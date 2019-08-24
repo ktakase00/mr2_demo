@@ -1,0 +1,9 @@
+<%= render partial: 'common/alert' %>
+
+<h1><%= t('view.page_title.edit', { resource: t('activerecord.models.meeting_room') }) %></h1>
+
+<div>
+  <%= link_to t('view.app.back'), meeting_rooms_path(@meeting_room), { class: 'hollow button primary small' } %>
+</div>
+
+<%= render 'form', meeting_room: @meeting_room %>

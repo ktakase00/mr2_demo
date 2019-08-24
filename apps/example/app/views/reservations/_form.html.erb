@@ -1,0 +1,54 @@
+<%= form_with(model: reservation, local: true) do |form| %>
+  <%= render partial: 'common/error', locals: { model: reservation } %>
+
+  <div class="grid-x">
+    <div class="cell small-12 medium-6">
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= form.label :meeting_room_id %>
+        <%= form.select :meeting_room_id, options_for_select(@meeting_room_options, {
+          selected: @reservation.meeting_room_id
+        }) %>
+      </div>
+
+      <%= field_set_tag i18n_attr('reservation.start_at'), { class: 'field' } do %>
+        <%= form.datetime_select :start_at %>
+      <% end %>
+
+      <%= field_set_tag i18n_attr('reservation.end_at'), { class: 'field' } do %>
+        <%= form.datetime_select :end_at %>
+      <% end %>
+
+      <%= field_set_tag i18n_attr('reservation.reservation_users'), { class: 'field' } do %>
+        <ul>
+        <%= form.fields_for :reservation_users do |form_builder| %><% reservation_user = form_builder.object %>
+        <% if reservation_user.user_id > 0 %>
+          <li>
+            <%= form_builder.check_box :attendance_flag, { checked: reservation_user.attendance_flag }, 1, 0 %>
+            <%= form_builder.label :attendance_flag, reservation_user.user.user_nm %>
+            <%= form_builder.hidden_field :reservation_id %>
+            <%= form_builder.hidden_field :user_id %>
+            <%= form_builder.hidden_field :id %>
+          </li>
+        <% end %>
+        <% end %>
+      </ul>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :memo_content %>
+        <%= form.text_area :memo_content %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit t('view.app.submit'), { class: 'button primary small' } %>
+      </div>
+    </div>
+    <div class="cell auto">
+    </div>
+  </div>
+<% end %>

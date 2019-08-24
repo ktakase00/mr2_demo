@@ -1,0 +1,79 @@
+<%= render partial: 'common/notice' %>
+
+<h1><%= t('activerecord.models.reservation') %></h1>
+
+<div>
+  <%= link_to t('view.app.back'), reservations_path, { class: 'hollow button primary small' } %>
+  <%= link_to t('view.app.edit'), edit_reservation_path(@reservation), { class: 'button primary small' } %>
+  <%= link_to t('view.app.destroy'), @reservation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'hollow button alert small' %>
+</div>
+
+<div class="property-table">
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('reservation.title') %>
+    </div>
+    <div class="cell">
+      <%= @reservation.title %>
+    </div>
+  </div>
+
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('reservation.user_id') %>
+    </div>
+    <div class="cell">
+      <%= @reservation.user.user_nm %>
+    </div>
+  </div>
+
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('reservation.meeting_room_id') %>
+    </div>
+    <div class="cell">
+      <%= @reservation.meeting_room.meeting_room_nm %>
+    </div>
+  </div>
+
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('reservation.start_at') %>
+    </div>
+    <div class="cell">
+      <%= i18n_datetime(@reservation.start_at) %>
+    </div>
+  </div>
+
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('reservation.end_at') %>
+    </div>
+    <div class="cell">
+      <%= i18n_datetime(@reservation.end_at) %>
+    </div>
+  </div>
+
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('reservation.reservation_users') %>
+    </div>
+    <div class="cell">
+      <ul>
+        <%= render partial: 'members',
+          collection: @atendded_user_ary,
+          as: :reservation_user
+        %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('reservation.memo_content') %>
+    </div>
+    <div class="cell">
+      <%== multiline_format(@reservation.memo_content) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<%= render partial: 'common/notice' %>
+
+<h1><%= t('view.page_title.index', { resource: t('activerecord.models.reservation') }) %></h1>
+
+<div>
+  <%= link_to t('view.app.new'), new_reservation_path, { class: 'button primary small' } %>
+</div>
+
+<table class="hover unstriped">
+  <thead>
+    <tr>
+      <th><%= i18n_attr('reservation.title') %></th>
+      <th><%= i18n_attr('reservation.user_id') %></th>
+      <th><%= i18n_attr('reservation.meeting_room_id') %></th>
+      <th><%= i18n_attr('reservation.start_at') %></th>
+      <th><%= i18n_attr('reservation.end_at') %></th>
+      <th><%= i18n_attr('reservation.reservation_users') %></th>
+      <th><%= i18n_attr('reservation.memo_content') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= link_to reservation.title, reservation_path(reservation) %></td>
+        <td><%= reservation.user.user_nm %></td>
+        <td><%= reservation.meeting_room.meeting_room_nm %></td>
+        <td><%= i18n_datetime(reservation.start_at) %></td>
+        <td><%= i18n_datetime(reservation.end_at) %></td>
+        <td><%= reservation.reservation_users.where({ attendance_flag: true }).count %></td>
+        <td><%== multiline_format(reservation.memo_content) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

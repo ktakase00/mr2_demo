@@ -1,0 +1,33 @@
+<% if notice.present? %>
+  <div class="callout success">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<h1><%= t('activerecord.models.user') %></h1>
+
+<div>
+  <%= link_to t('view.app.back'), users_path, { class: 'hollow button primary small' } %>
+  <%= link_to t('view.app.edit'), edit_user_path(@user), { class: 'button primary small' } %>
+  <%= link_to t('view.app.destroy'), @user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'hollow button alert small' %>
+</div>
+
+<div class="property-table">
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('user.user_cd') %>
+    </div>
+    <div class="cell">
+      <%= @user.user_cd %>
+    </div>
+  </div>
+
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('user.user_nm') %>
+    </div>
+    <div class="cell">
+      <%= @user.user_nm %>
+    </div>
+  </div>
+</div>

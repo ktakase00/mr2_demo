@@ -1,0 +1,102 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  activerecord:
+    models:
+      user: 'User'
+      meeting_room: 'Meting Room'
+      reservation: 'Meting Room Reservation'
+    attributes:
+      user:
+        user_cd: 'Login ID'
+        user_nm: 'User Name'
+      meeting_room:
+        meeting_room_nm: 'Meeting Room Name'
+        memo_content: 'Memo'
+      reservation:
+        title: 'Title'
+        user_id: 'Owner'
+        meeting_room_id: 'Meeting Room'
+        start_at: 'Start Time'
+        end_at: 'End Time'
+        memo_content: 'Memo'
+        reservation_users: 'Members'
+    errors:
+      models:
+        reservation:
+          attributes:
+            meeting_room_id:
+              blank: 'is not selected'
+              greater_than: 'is not selected'
+  activemodel:
+    models:
+      session_form: 'Login'
+    attributes:
+      session_form:
+        user_cd: 'Login ID'
+  view:
+    app:
+      new: 'New'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      back: 'Back'
+      submit: 'Submit'
+      login: 'Login'
+      logout: 'Logout'
+    page_title:
+      index: '%{resource} List'
+      new: 'New %{resource}'
+      edit: 'Editing %{resource}'
+    menu:
+      manage: 'Manage'
+    menu_item:
+      reservation: 'Reservation'
+      user: 'User'
+      meeting_room: 'Meeting Room'
+    session:
+      failed_to_authenticate: 'Failed to authenticate.'
+    notice:
+      create: '%{resource} was successfully created.'
+      update: '%{resource} was successfully updated.'
+      destroy: '%{resource} was successfully destroyed.'
+    alert:
+      create: 'Creating a %{resource} failed.'
+      update: 'Updateing a %{resource} failed.'
+      destroy: 'Destroing a %{resource} failed.'
+  errors:
+    messages:
+      booked: 'has been already booked'
+      not_selected: 'is not selected'
+  time:
+    formats:
+      datetime_minute: '%m/%d/%Y %H:%M'

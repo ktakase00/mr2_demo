@@ -1,0 +1,25 @@
+<%= render partial: 'common/notice' %>
+
+<h1><%= t('view.page_title.index', { resource: t('activerecord.models.meeting_room') }) %></h1>
+
+<div>
+  <%= link_to t('view.app.new'), new_meeting_room_path, { class: 'button primary small' } %>
+</div>
+
+<table class="hover unstriped">
+  <thead>
+    <tr>
+      <th><%= i18n_attr('meeting_room.meeting_room_nm') %></th>
+      <th><%= i18n_attr('meeting_room.memo_content') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meeting_rooms.each do |meeting_room| %>
+      <tr>
+        <td><%= link_to meeting_room.meeting_room_nm, meeting_room_path(meeting_room) %></td>
+        <td><%= multiline_format(meeting_room.memo_content) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

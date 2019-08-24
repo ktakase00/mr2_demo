@@ -1,0 +1,29 @@
+<%= render partial: 'common/notice' %>
+
+<h1><%= t('activerecord.models.meeting_room') %></h1>
+
+<div>
+  <%= link_to t('view.app.back'), meeting_rooms_path, { class: 'hollow button primary small' } %>
+  <%= link_to t('view.app.edit'), edit_meeting_room_path(@meeting_room), { class: 'button primary small' } %>
+  <%= link_to t('view.app.destroy'), @meeting_room, method: :delete, data: { confirm: 'Are you sure?' }, class: 'hollow button alert small' %>
+</div>
+
+<div class="property-table">
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('meeting_room.meeting_room_nm') %>
+    </div>
+    <div class="cell">
+      <%= @meeting_room.meeting_room_nm %>
+    </div>
+  </div>
+
+  <div class="grid-x small-up-1 medium-up-2">
+    <div class="cell header">
+      <%= i18n_attr('meeting_room.memo_content') %>
+    </div>
+    <div class="cell">
+      <%= multiline_format(@meeting_room.memo_content) %>
+    </div>
+  </div>
+</div>

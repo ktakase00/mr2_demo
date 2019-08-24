@@ -1,0 +1,29 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">MR2</li>
+      <% if logged_in? %>
+      <li>
+        <a href="#"><%= t('view.menu.manage') %></a>
+        <ul class="menu vertical">
+          <li><a href="<%= reservations_path %>"><%= t('view.menu_item.reservation') %></a></li>
+          <li><a href="<%= users_path %>"><%= t('view.menu_item.user') %></a></li>
+          <li><a href="<%= meeting_rooms_path %>"><%= t('view.menu_item.meeting_room') %></a></li>
+        </ul>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% if logged_in? %>
+  <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li>
+        <a href="#"><%= @me.user_nm %></a>
+        <ul class="menu vertical">
+          <li><%= link_to t('view.app.logout'), session_path(SecureRandom.urlsafe_base64), { method: :delete } %></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</div>

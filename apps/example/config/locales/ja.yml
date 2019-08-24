@@ -1,0 +1,71 @@
+ja:
+  hello: "Hello world"
+  activerecord:
+    models:
+      user: 'ユーザ'
+      meeting_room: '会議室'
+      reservation: '予約'
+    attributes:
+      user:
+        user_cd: 'ログインID'
+        user_nm: 'ユーザ名'
+      meeting_room:
+        meeting_room_nm: '名称'
+        memo_content: 'メモ'
+      reservation:
+        title: 'タイトル'
+        user_id: '主催者'
+        meeting_room_id: '会議室'
+        start_at: '開始日時'
+        end_at: '終了日時'
+        memo_content: 'メモ'
+        reservation_users: '参加者'
+    errors:
+      models:
+        reservation:
+          attributes:
+            meeting_room_id:
+              blank: 'を選択してください'
+              greater_than: 'を選択してください'
+  activemodel:
+    models:
+      session_form: 'ログイン'
+    attributes:
+      session_form:
+        user_cd: 'ログインID'
+  view:
+    app:
+      new: '新規登録'
+      edit: '編集'
+      destroy: '削除'
+      back: '戻る'
+      submit: '登録'
+      login: 'ログイン'
+      logout: 'ログアウト'
+    page_title:
+      index: '%{resource}一覧'
+      new: '%{resource}新規登録'
+      edit: '%{resource}編集'
+    menu:
+      manage: '管理'
+    menu_item:
+      reservation: '予約'
+      user: 'ユーザ'
+      meeting_room: '会議室'
+    session:
+      failed_to_authenticate: '認証に失敗しました。'
+    notice:
+      create: '%{resource}を登録しました。'
+      update: '%{resource}を更新しました。'
+      destroy: '%{resource}を削除しました。'
+    alert:
+      create: '%{resource}の登録に失敗しました。'
+      update: '%{resource}の更新に失敗しました。'
+      destroy: '%{resource}の削除に失敗しました。'
+  errors:
+    messages:
+      booked: 'は予約されています'
+      not_selected: 'を選択してください'
+  time:
+    formats:
+      datetime_minute: '%Y/%m/%d %H:%M'

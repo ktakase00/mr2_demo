@@ -1,0 +1,23 @@
+<%= form_with(model: meeting_room, local: true) do |form| %>
+  <%= render partial: 'common/error', locals: { model: meeting_room } %>
+
+  <div class="grid-x">
+    <div class="cell small-12 medium-6">
+      <div class="field">
+        <%= form.label :meeting_room_nm %>
+        <%= form.text_field :meeting_room_nm %>
+      </div>
+
+      <div class="field">
+        <%= form.label :memo_content %>
+        <%= form.text_area :memo_content %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit t('view.app.submit'), { class: 'button primary small' } %>
+      </div>
+    </div>
+    <div class="cell auto">
+    </div>
+  </div>
+<% end %>

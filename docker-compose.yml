@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    image: ktakase00/rubypg-learn-mr2:uv-201908
+    volumes:
+      - ".:/home/ubuntu/repo"
+  db:
+    image: postgres:11
+    environment:
+      POSTGRES_USER: mr2
+      POSTGRES_PASSWORD: mr2
+      POSTGRES_DB: web_development
+      TZ: "Asia/Tokyo"
+    ports:
+      - 6432:5432

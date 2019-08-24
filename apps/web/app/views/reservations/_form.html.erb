@@ -1,0 +1,37 @@
+<%= form_with(model: reservation, local: true) do |form| %>
+  <%= render partial: 'common/error', locals: { model: reservation } %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :room_id %>
+    <%= form.text_field :room_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_at %>
+    <%= form.text_field :start_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_at %>
+    <%= form.text_field :end_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :memo_content %>
+    <%= form.text_area :memo_content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

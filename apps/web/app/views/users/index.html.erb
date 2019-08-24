@@ -1,0 +1,29 @@
+<% if notice.present? %>
+  <div class="callout success">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<h1><%= t('view.page_title.index', { resource: t('activerecord.models.user') }) %></h1>
+
+<div>
+  <%= link_to t('view.app.new'), new_user_path, { class: 'button primary small' } %>
+</div>
+
+<table class="hover unstriped">
+  <thead>
+    <tr>
+      <th><%= i18n_attr('user.user_cd') %></th>
+      <th><%= i18n_attr('user.user_nm') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.user_cd, user %></td>
+        <td><%= user.user_nm %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

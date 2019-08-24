@@ -1,0 +1,13 @@
+<% if alert.present? %>
+  <div class="callout alert">
+    <p id="alert"><%= alert %></p>
+  </div>
+<% end %>
+
+<h1><%= t('view.page_title.edit', { resource: t('activerecord.models.user') }) %></h1>
+
+<div>
+  <%= link_to t('view.app.back'), user_path(@user), { class: 'hollow button primary small' } %>
+</div>
+
+<%= render 'form', user: @user %>
