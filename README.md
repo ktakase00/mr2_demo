@@ -68,7 +68,7 @@ git clone git@github.com:ktakase00/mr2_demo.git
 ### webコンテナ用イメージ作成
 
 ```sh
-docker pull ktakase00/rubypg-learn-mr2
+docker pull ktakase00/rubypg-learn-mr2:uv-201908
 ```
 
 ## 開発環境の起動
